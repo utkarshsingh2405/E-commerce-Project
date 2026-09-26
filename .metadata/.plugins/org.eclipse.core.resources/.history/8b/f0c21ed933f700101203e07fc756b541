@@ -1,0 +1,3 @@
+spring.application.name=api-gateway
+jwt.secret=MySuperSecretKeyForJwtToken123456
+jwt.expiration-ms=86400000

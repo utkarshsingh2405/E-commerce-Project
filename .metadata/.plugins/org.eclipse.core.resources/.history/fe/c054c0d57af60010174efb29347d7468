@@ -1,0 +1,5 @@
+package com.ecommerce.gateway.security;
+
+public class JwtUtil {
+
+}
