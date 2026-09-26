@@ -7,6 +7,17 @@ spring:
 
   cloud:
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
       discovery:
         locator:
           enabled: false
@@ -35,7 +46,14 @@ spring:
         - id: ORDER-SERVICE
           uri: lb://ORDER-SERVICE
           predicates:
-            - Path=/api/orders/**
+            - Path=/api/orders/**,/api/order/**,/api/order
+          filters:
+            - CustomRouteFilter
+
+        - id: PAYMENT-SERVICE
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/api/payments/**,/api/payment/**
           filters:
             - CustomRouteFilter
 eureka:

@@ -1,0 +1,77 @@
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --canvas: #FAFAF8;
+  --surface: #FFFFFF;
+  --surface-sunken: #F2F1ED;
+  --border: #E5E4E0;
+  --border-strong: #D3D1CB;
+  --text-primary: #171714;
+  --text-secondary: #6B6A64;
+  --text-disabled: #A8A69F;
+  --accent: #14464A;
+  --accent-hover: #0D3437;
+  --accent-tint: #E3EEEE;
+  --success: #3F6B4A;
+  --success-tint: #E9F1EA;
+  --warning: #8A6A1F;
+  --warning-tint: #F6EEDA;
+  --error: #A33B2E;
+  --error-tint: #FBEAE6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--canvas);
+  color: var(--text-primary);
+  font-family: 'General Sans', sans-serif;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #FAFAF8;
+  color: #171714;
+  font-family: 'General Sans', sans-serif;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #E3EEEE;
+  color: #14464A;
+}
+
+/* Tabular nums for monetary & numeric values */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAFAF8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D3D1CB;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A8A69F;
+}
