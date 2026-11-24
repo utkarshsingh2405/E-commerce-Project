@@ -1,0 +1,30 @@
+# Eclipse & STS Workspace Metadata
+.metadata/
+.recommenders/
+
+# IDE Files
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.project
+.classpath
+.settings/
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Log Files
+*.log
+
+# Build & Dependency Artifacts (Global fallbacks)
+**/target/
+target/
+**/node_modules/
+node_modules/
+**/.next/
+.next/
+**/next-env.d.ts

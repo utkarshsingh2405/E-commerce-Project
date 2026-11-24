@@ -68,10 +68,12 @@ A backend for an online store, built as a set of independently deployable Spring
 | **order-service** | 8083 | `order_db` | Places orders: checks stock via Feign, persists the order, and publishes an `order-event` to Kafka. |
 | **payment-service** | 8084 | `payment_db` | Creates payment orders via Razorpay and handles Razorpay's signed webhook to confirm or fail orders/inventory reservations. |
 | **notification-service** | 8082 | – | Consumes notification events from Kafka and sends Email (Spring Mail/SMTP) or SMS (Twilio) depending on event type. |
+| **storefront** | 3000 | – | Next.js 14 frontend (React, TypeScript, Tailwind CSS) providing product browsing, shopping cart, checkout, order tracking, and user authentication UI. |
 | **kafka-infra** | – | – | `docker-compose.yml` for a local single-node Kafka broker (KRaft mode, no ZooKeeper) on port 9092. |
 
 ## Tech Stack
 
+- **Frontend:** Next.js 14, React 18, TypeScript, Tailwind CSS, Lucide Icons
 - **Language / Framework:** Java, Spring Boot (services on 3.5.x and 4.0.x)
 - **API Gateway:** Spring Cloud Gateway (WebFlux) + Spring Cloud LoadBalancer
 - **Service Discovery:** Spring Cloud Netflix Eureka
@@ -141,7 +143,25 @@ cd api-gateway
 # All client traffic now goes through http://localhost:8080
 ```
 
-### 5. Configure secrets
+### 5. Start the storefront (Frontend)
+```bash
+cd storefront
+npm install
+npm run dev
+# Storefront UI is now live at http://localhost:3000
+```
+
+### Quick Start (Windows Scripts)
+You can also start everything quickly with the included helper scripts:
+```bat
+# Start all backend services in separate command windows
+start-backend.bat
+
+# Start the frontend
+start-frontend.bat
+```
+
+### 6. Configure secrets
 Before running for real, set your own values for:
 - `app.jwt.secret` / `jwt.secret` (user-service and api-gateway — must match)
 - `razorpay.key`, `razorpay.secret`, `razorpay.webhook-secret` (payment-service)
